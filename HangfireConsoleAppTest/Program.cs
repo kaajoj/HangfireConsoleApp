@@ -25,6 +25,10 @@ namespace HangfireConsoleAppTest
 
             BackgroundJob.Enqueue(() => Console.WriteLine("Hello, world!"));
 
+            RecurringJob.AddOrUpdate(
+                () => Console.WriteLine("Recurring job!"),
+                Cron.Minutely);
+
             using (var server = new BackgroundJobServer())
             {
                 Console.ReadLine();
