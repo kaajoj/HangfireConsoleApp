@@ -29,7 +29,7 @@ namespace HangfireConsoleAppTest
                 () => Console.WriteLine("Recurring job!"),
                 Cron.Minutely);
 
-            RecurringJob.AddOrUpdate(
+            RecurringJob.AddOrUpdate("id-job2",
                 () => Console.WriteLine("Recurring job2"),
                 "*/15 * * * *");
             
